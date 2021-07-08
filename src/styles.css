@@ -1,0 +1,73 @@
+/*"~bootstrap/dist/css/bootstrap.min.css";"" */
+/* You can add global styles to this file, and also import other style files */
+body {
+  direction: rtl;
+}
+.right {
+  text-align: right;
+}
+
+.btn.btn-primary{
+ font-family: fantasy;
+  background-size: 300% 100%;
+
+  border-radius: 30px;
+  font-weight: 400;
+  font-size: 20px;
+  -o-transition: all .6s ease-in-out;
+  -webkit-transition: all .6s ease-in-out;
+  transition: all .6s ease-in-out;
+  padding: 10px  40px ;
+  border: none ;
+  box-sizing: border-box;
+  -o-transition: all .6s ease-in-out;
+  -webkit-transition: all .6s ease-in-out;
+  transition: all .6s ease-in-out;/* text-shadow: 0px 0px 10px rgba(0,0,0,0.2);*/
+  /* background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376); */
+  background-image: linear-gradient(to right, #02AAB0 0%, #00CDAC 51%, #02AAB0 100%);
+  box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+  /* background-image: linear-gradient(to right, #fc6076, #ff9a44, #ef9d43, #e75516);
+  box-shadow: 0 4px 15px 0 rgba(252, 104, 110, 0.75); */
+  
+}
+.btn.btn-primary:hover {
+  
+
+  background-position: 100% 0;
+   
+  -o-transition: all .6s ease-in-out;
+  -webkit-transition: all .6s ease-in-out;
+  transition: all .6s ease-in-out;
+}
+.label{color: white; text-align: right; float:right;}
+/* 
+.btn {
+  display: inline-block;
+  border: none;
+  font-size: 14px;
+  font-weight: 600;
+  margin: 2px;
+  width: 70px;
+  padding: 8px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  background: #f43f00;
+  color: #fff;
+  line-height: normal;
+  cursor: pointer;
+  text-align: center;
+} */
+/* .center{
+    text-align: center;
+} */
+/* @import "./assets/css/bootstrap.min.css ";
+@import "./assets/css/flaticon.css";
+@import "./assets/css/font-awesome.min.css";
+@import "./assets/css/jquery-ui.min.css";
+@import "./assets/css/owl.carousel.min.css" ;
+@import "./assets/css/slicknav.min.css";
+@import "./assets/css/style.css";  */
+h4{
+  font-size: 36px;
+  color: #f6755e;
+}

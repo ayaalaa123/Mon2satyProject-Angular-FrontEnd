@@ -1,0 +1,15 @@
+h2,li,.post{
+    text-align: right;
+}
+h2{
+    
+        font-weight: 600;
+        color: #f7655e;
+        font-size: 24px;
+    
+}
+div.post{
+    color: white;
+    
+}
+ 

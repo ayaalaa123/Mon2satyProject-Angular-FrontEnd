@@ -1,0 +1,289 @@
+<section class="hero-section" style="background-image: url(assets/img/2.jpg);">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <form
+          *ngIf="newSupplier.id == null"
+            class="hero-form"
+            #supplierForm="ngForm"
+           (submit)="getRegisteredData(supplierForm)"
+          >
+            <div>
+              <input
+                type="text"
+                placeholder="   أسم الشركه  "
+                name="companyName" 
+                ngModel
+              />
+            </div>
+           
+            <input
+              type="text"
+              placeholder=" البريد الألكتروني  "
+              name="email"
+             
+              ngModel
+            />
+  
+           
+  
+            <input
+              type="password"
+              placeholder="  كلمة المرور  "
+              name="password"
+            
+              ngModel
+              required
+            />
+            
+            <button class="site-btn" > تعديل</button>
+          </form>
+
+          <form
+          class="hero-form"
+          #supplierForm="ngForm"
+          (submit)="onSubmitSupplier(supplierForm)"
+          ng-app="myApp"
+          ng-controller="validateCtrl"
+          name="myForm"
+          novalidate
+          *ngIf="newSupplier.id != null"
+        >
+          <input
+            type="text"
+            placeholder="   أسم الشركه  "
+            name="companyName"
+            ng-model="companyName"
+            required
+            [(ngModel)]="newSupplier.companyName"
+            ngModel
+          />
+
+          <span
+            style="color: white;"
+            ng-show="myForm.companyName.$dirty && myForm.companyName.$invalid"
+          >
+            <span ng-show="myForm.companyName.$error.required"
+              >برجاء إدخال اسم الشركه
+            </span>
+          </span>
+
+          <input
+            type="text"
+            placeholder="  عنوان الشركه  "
+            required
+            name="address"
+            ng-model="address"
+            [(ngModel)]="newSupplier.address"
+            required
+            ngModel
+          />
+          <span
+            style="color: white;"
+            ng-show="myForm.address.$dirty && myForm.address.$invalid"
+          >
+            <span ng-show="myForm.address.$error.required"
+              >برجاء ادخال عنوان الشركه</span
+            >
+          </span>
+          <input
+            type="email"
+            placeholder=" البريد الألكتروني  "
+            name="email"
+            ngModel
+            [(ngModel)]="newSupplier.email"
+            ng-model="email"
+            required
+          />
+          <span
+            style="color: white;"
+            ng-show="myForm.email.$dirty && myForm.email.$invalid"
+          >
+            <span ng-show="myForm.email.$error.required"
+              >برجاء ادخال البريد الالكترونى</span
+            >
+            <span ng-show="myForm.email.$error.email"
+              >البريد الالكترونى الذى ادخلته غير صحيح</span
+            >
+          </span>
+
+          <input
+            type="text"
+            placeholder=" الفاكس "
+            name="fax"
+            ng-model="fax"
+            [(ngModel)]="newSupplier.fax"
+            required
+            ngModel
+            required
+          />
+          <span
+            style="color: white;"
+            ng-show="myForm.supplierFax.$dirty && myForm.supplierFax.$invalid"
+          >
+            <span ng-show="myForm.supplierFax.$error.required"
+              >برجاء ادخال الفاكس</span
+            >
+          </span>
+
+          <input
+            type="text"
+            placeholder=" أسم مدير الشركه "
+            name="managerName"
+            ngModel
+            ng-model="managerName"
+            
+            [(ngModel)]="newSupplier.managerName"
+            required
+          />
+          <span
+            style="color: white;"
+            ng-show="myForm.managerName.$dirty && myForm.managerName.$invalid"
+          >
+            <span ng-show="myForm.managerName.$error.required"
+              >برجاء ادخال اسم مدير الشركه</span
+            >
+          </span>
+
+          <input
+            type="text"
+            placeholder=" رقم مدير الشركه "
+            name="managerPhone"
+            ngModel
+            ng-model="managerPhone"
+            
+            [(ngModel)]="newSupplier.managerPhone"
+            required
+          />
+          <span
+            style="color: white;"
+            ng-show="myForm.managerPhone.$dirty && myForm.managerPhone.$invalid"
+          >
+            <span ng-show="myForm.managerPhone.$error.required"
+              >برجاء ادخال رقم تليفون مدير الشركه</span
+            >
+          </span>
+          <input
+            type="text"
+            placeholder=" تليفون الشركه  "
+            name="phone"
+            ngModel
+            ng-model="phone"
+            
+            [(ngModel)]="newSupplier.phone"
+            required
+          />
+
+          <span
+            style="color: white;"
+            ng-show="
+              myForm.supplierPhone.$dirty && myForm.supplierPhone.$invalid
+            "
+          >
+            <span ng-show="myForm.supplierPhone.$error.required"
+              >برجاء ادخال رقم تليفون المورد</span
+            >
+          </span>
+
+          <input
+            type="password"
+            placeholder="  كلمة المرور  "
+            name="password"
+            ng-model="password"
+            disabled
+            [(ngModel)]="newSupplier.password"
+            ngModel
+            ng-minlength="3"
+            ng-maxlength="20"
+            required
+          />
+
+          <span
+            style="color: white;"
+            ng-show="myForm.password.$dirty && myForm.password.$invalid"
+          >
+            <span ng-show="myForm.password.$error.required"
+              >برجاء ادخال كلمه المرور
+            </span>
+            <span ng-if="!myForm.password.$valid"
+              >كلمه المرور يجب ان تحتوى على الاقل ثلاث ارقام وعلى الاكثر عشرون
+              رقم
+            </span>
+          </span>
+
+          <input
+            type="button"
+            class="accordion"
+            value="نشاط الشركة
+          "
+          />
+          <div class="panel">
+            <select name="subCategories" ngModel 
+            [(ngModel)]="newSupplier.subCategoryID"
+            
+            >
+              <option *ngFor="let item of subCat"  value="{{ item.id }}">
+                {{ item.name }}
+              </option>
+            </select>
+          </div>
+
+          <!-- <p class="file right">
+            سابقة أعمال
+            <input
+              type="file"
+              required
+              name="legalPaperwork"
+              ngModel
+            [(ngModel)]="newSupplier.legalPaperwork"
+              ng-model="legalPaperwork"
+            />
+          </p> -->
+
+          <input type="text"  placeholder="لينك درايف سابقة الأعمال "
+          name="legalPaperwork"
+            ng-model="legalPaperwork"
+            ngModel
+           [(ngModel)]="newSupplier.legalPaperwork"/>
+          <!-- <p class="file right">
+            معلومات الشركه
+            <input
+              type="file"
+              name="infoPaperwork"
+              ngModel
+              
+            [(ngModel)]="newSupplier.infoPaperwork"
+              ng-model="infoPaperwork"
+              required
+            />
+          </p> -->
+
+          <input type=" text" placeholder=" لينك درايف معلومات الشركة "
+          name="infoPaperwork"
+          ng-model="infoPaperwork"
+          ngModel
+          [(ngModel)]="newSupplier.infoPaperwork">
+
+          <button class="site-btn">تأكيد</button>
+        </form>
+        </div>
+  
+        <div class="col-lg-6">
+          <div class="hs-text">
+            <h4 class="right">مرحبا بك</h4>
+            <br />
+            <p class="right">
+              اهلا بكم في موقع مناقصات مصر نحن نعمل دائما للوصول بخدماتنا الي
+              المستوي الذي يرغبة عملائنا الكرام .. لذا نرحب دائما بأستفساراتكم او
+              شكواكم او اقتراحاتكم .. ونعدكم بالعمل جاهدين لتلبية متطلباتكم .
+              يمكنم استخدام احد وسائل التواصل المتاحة في هذة الصفحة بدء من
+              مراسلتنا عبر نموذج الأتصال مرورا بالتواصل معنا عبر صفحتنا علي فيس
+              بوك او التواصل مع احد مندوبينا عبر الدردشة الحية ويمكنكم ايضا
+              الأتصال بنا علي الأرقام الموضحة ادناة ...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

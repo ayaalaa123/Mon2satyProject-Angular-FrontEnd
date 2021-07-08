@@ -1,0 +1,73 @@
+<section
+  class="page-top-section set-bg"
+  style="background-image: url(assets/img/2.jpg);"
+>
+  <div class="container">
+    <div id="admin" class="right">انطلقَ بأعمالك نحو الأفضل !</div>
+  </div>
+</section>
+<p><i class="fa fa-clone" aria-hidden="true"></i> الصفحات الخاصة بمدير النظام</p>
+<nav class="navbar navbar-expand-lg bg-light">
+  <ul class="navbar-nav">
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="category" routerLinkActive="active">
+        الأصناف
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="rigistration" routerLinkActive="active">
+        تسجيل مورد جديد
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="PublicTender" routerLinkActive="active">
+        المناقصات العامه
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="privatetender" routerLinkActive="active"
+        >المناقصات المحدودة
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="suppliers" routerLinkActive="active"
+        >بيانات الموردين</a
+      >
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="newSuppliers" routerLinkActive="active">
+        الموردون الغير مسجلين</a
+      >
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" routerLink="search" routerLinkActive="active">
+        البحث
+      </a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" routerLink="supplierPublicTenders" routerLinkActive="active">
+        الموردون المقدمون على مناقصات عامة
+      </a>
+    </li>
+    <li class="nav-item">
+      <a
+        class="nav-link"
+        routerLink="sendPrivateToSupplier"
+        routerLinkActive="active"
+        >إرسال مناقصه محدوده للموردين
+      </a>
+    </li>
+
+
+    <!-- <li class="nav-item">
+      <a class="nav-link" (click)="onLogout()"> تسجيل الخروج</a>
+    </li> -->
+  </ul>
+</nav>
+<br />
+
+<router-outlet></router-outlet>

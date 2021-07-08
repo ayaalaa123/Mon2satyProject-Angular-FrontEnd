@@ -1,0 +1,95 @@
+<!-- <app-admin-header></app-admin-header> -->
+<br />
+<br />
+<div class="container">
+  <div class="row" style="overflow-x: auto; overflow-y: hidden;">
+    <table *ngIf="supplierchoosen">
+      <tr>
+        <th>اسم الشركة</th>
+        <th>العنوان</th>
+        <th>البريد الالكترونى</th>
+        <th>ورق سابقة الاعمال</th>
+        <th>ورق معلومات الشركة</th>
+        <th>تاريخ الانضمام</th>
+
+        <th>اسم مدير الشركة</th>
+        <th>رقم مدير الشركة</th>
+        <!-- <th>وصف المناقصه</th> -->
+        <th>المورد الذى تم اختياره</th>
+      </tr>
+      <tbody>
+        <tr>
+          <td>{{ supplierchoosen.companyName }}</td>
+          <td>{{ supplierchoosen.address }}</td>
+          <td>{{ supplierchoosen.email }}</td>
+          <td>{{ supplierchoosen.legalPaperwork }}</td>
+          <td>{{ supplierchoosen.infoPaperwork }}</td>
+          <td>{{ supplierchoosen.addedDate | date: "short" }}</td>
+
+          <td>{{ supplierchoosen.managerName }}</td>
+          <td>{{ supplierchoosen.managerPhone }}</td>
+          <!-- <td>{{ tenderDiscriptin.publicTender.tenderDescription }}</td> -->
+          <td>
+            <button disabled class="btn btn-primary">
+              المورد الذى تم اختياره
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table *ngIf="!supplierchoosen">
+      <tr>
+        <th>اسم الشركة</th>
+        <th>العنوان</th>
+        <th>البريد الالكترونى</th>
+        <th>ورق سابقة الاعمال</th>
+        <th>ورق معلومات الشركة</th>
+        <th>تاريخ الانضمام</th>
+
+        <th>اسم مدير الشركة</th>
+        <th>رقم مدير الشركة</th>
+
+        <th>اختيار</th>
+      </tr>
+      <tbody>
+        <tr
+          *ngFor="
+            let item of suppliersarr
+              | paginate: { itemsPerPage: 10, currentPage: p }
+          "
+        >
+          <td>{{ item.supplier.companyName }}</td>
+          <td>{{ item.supplier.address }}</td>
+          <td>{{ item.supplier.email }}</td>
+          <td>{{ item.supplier.legalPaperwork }}</td>
+          <td>{{ item.supplier.infoPaperwork }}</td>
+          <td>{{ item.supplier.addedDate | date: "short" }}</td>
+
+          <td>{{ item.supplier.managerName }}</td>
+          <td>{{ item.supplier.managerPhone }}</td>
+
+          <td>
+            <button
+              class="btn btn-primary"
+              [routerLink]="[
+                '/admin/assignSupplierToPrivateTender',
+                item.privateTenderID,
+                item.supplier.id
+              ]"
+            >
+              اختيار
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </table>
+  </div>
+  <h4
+    *ngIf="!supplierchoosen && suppliersarr.length === 0"
+    style="text-align: center; color: orangered;"
+  >
+    لم يقدم فيها احد
+  </h4>
+</div>
+

@@ -1,0 +1,81 @@
+<div id="preloder">
+  <div class="loader"></div>
+</div>
+
+<!-- Header Section -->
+<header class="header-section" >
+  <!-- <a href="index.html" class="site-logo">
+    <img src="assets/img/15.png" alt="" />
+  </a> -->
+
+  <a class="site-logo" >
+    Mona<span>2</span>saty
+  </a>
+
+  <nav class="header-nav">
+    <div class="header-right" style="height: 110px;">
+      <a href="#" class="hr-btn"
+        ><i class="flaticon-029-telephone-1"></i>اتصل بنا الآن
+      </a>
+      <div class="hr-btn hr-btn-2">0502524505</div>
+    </div>
+    <ul class="main-menu">
+      <li>
+        <a routerLink="/home" routerLinkActive="active"> الصفحه الرئيسيه</a>
+      </li>
+      <li><a routerLink="/aboutus" routerLinkActive="active">من نحن </a></li>
+
+      <li>
+        <a routerLink="/contact" routerLinkActive="active">تواصل معنا </a>
+      </li>
+      <li>
+        <!-- <a href="#">التسجيل </a> -->
+        <span style="font-size: 22px; font-weight: 550;  ">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          التسجيل </span>
+        <ul class="sub-menu">
+          <li *ngIf="!isAuth">
+            <a routerLink="/login" class="right" routerLinkActive="active"
+              ><i class="fa fa-sign-in" aria-hidden="true" ></i> تسجيل الدخول
+            </a>
+          </li>
+
+          <li *ngIf="!isAuth">
+            <a routerLink="/signin" class="right" routerLinkActive="active"
+              ><i class="fa fa-user" aria-hidden="true"></i> التسجيل لأول مره
+            </a>
+          </li>
+          <li>
+            <a routerLink="/editNewSupplierData" *ngIf="!isAuth" routerLinkActive="active">
+              <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+
+              تعديل بيانات مسبقة  </a>
+          </li>
+          <li class="nav-item" *ngIf="isAuth">
+            <a class="nav-link" (click)="onLogout()" 
+              ><i class="fa">&#xf08b;</i> تسجيل الخروج</a
+            >
+          </li>
+          <!-- <li><a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                        <i class="fa fa-bars"></i>
+                      </a></li>     -->
+        </ul>
+      </li>
+      <!-- <li>
+        <a routerLink="/editNewSupplierData" *ngIf="!isAuth" routerLinkActive="active">تعديل بيانات مسبقة  </a>
+      </li> -->
+    </ul>
+ 
+  </nav>
+</header>
+<br /><br /><br /><br />
+
+<!--
+<div class="topnav" id="myTopnav">
+    <a href="#home" class="active">Home</a>
+    <a href="#news">News</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>-->

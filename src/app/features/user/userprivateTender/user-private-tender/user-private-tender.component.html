@@ -1,0 +1,35 @@
+<div style="text-align: center; margin-bottom: 15px;">
+  <!-- <h3>{{ supplier.companyName }}'s Private Tenders</h3> -->
+</div>
+
+<div class="container" style="text-align: center;">
+  <div
+    class="row table"
+    style="overflow-x: auto; overflow-y: hidden;"
+    *ngIf="supplierPrivateTenders.length > 0"
+  >
+    <table>
+      <tr>
+        <th>كراسه الشروط</th>
+        <th>تاريخ المناقصه</th>
+        <!-- <th>المورد</th> -->
+        <th>الصنف</th>
+      </tr>
+      <ng-container *ngFor="let tender of supplierPrivateTenders">
+        <tr *ngIf="tender.privateTender.supplierID == null">
+          <td>{{ tender.privateTender.brochure }}</td>
+          <td>{{ tender.privateTender.date |date:'short'}}</td>
+          <!-- <td>{{ tender.supplier.companyName }}</td> -->
+          <td>
+            {{ tender.privateTender.subCategory.name }}
+          </td>
+        </tr>
+      </ng-container>
+    </table>
+  </div>
+
+  <h3 *ngIf="supplierPrivateTenders.length < 1">
+    <span style="color: orangered;">{{ supplier.companyName }}</span> :لا يوجد مناقصات محدودة متاحة لديك  
+  </h3>
+</div>
+<br />

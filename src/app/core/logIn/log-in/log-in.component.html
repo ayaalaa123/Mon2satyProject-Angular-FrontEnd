@@ -1,0 +1,100 @@
+<section class="hero-section" style="background-image: url(assets/img/2.jpg);">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <form
+          class="hero-form"
+          name="myForm"
+          (ngSubmit)="loginForm.form.valid && onLogin(loginForm)"
+          #loginForm="ngForm"
+          novalidate
+        >
+          <!--   <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+ -->
+          <!-- <div class="form-group">
+      <input id="name" name="name" class="form-control"
+      required minlength="4" appForbiddenName="bob"
+      [(ngModel)]="data.name" #name="ngModel"/>
+    </div> -->
+          <div class="form-group">
+            <div
+              *ngIf="companyCode.invalid && (companyCode.dirty || companyCode.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="companyCode.errors.required">
+                برجاء ادخال الرقم التسجيلى
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="companyCode"
+              placeholder="الرقم التسجيلى "
+              class="form-control"
+              name="companyCode"
+              required
+              [(ngModel)]="data.companyCode"
+              #companyCode="ngModel"
+            />
+          </div>
+          <div class="form-group">
+            <div
+              *ngIf="password.invalid && (password.dirty || password.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="password.errors.required">
+                برجاء ادخال كلمه المرور
+              </div>
+              <div *ngIf="password.errors.minlength">
+                اقل عدد من الحروف يمكن ادخالها هى ثلاثه احرف
+              </div>
+              <div *ngIf="password.errors.maxlength">
+                اكبر عدد من الحروف يمكن ادخالها هى عشرين حرف
+              </div>
+            </div>
+          </div>
+          <div>
+            <input
+              type="password"
+              id="password"
+              placeholder=" كلمة السر "
+              class="form-control"
+              name="password"
+              required
+              [(ngModel)]="data.password"
+              #password="ngModel"
+              minlength="3"
+              maxlength="20"
+            />
+          </div>
+
+
+          <button
+            class="site-btn"
+            [disabled]="loginForm.form.pristine || loginForm.form.invalid"
+          >
+            تأكيد
+          </button>
+        </form>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="hs-text">
+          <h4 class="right">مرحبا بك</h4>
+          <br />
+          <p class="right">
+            اهلا بكم في موقع مناقصات مصر نحن نعمل دائما للوصول بخدماتنا الي
+            المستوي الذي يرغبة عملائنا الكرام .. لذا نرحب دائما بأستفساراتكم او
+            شكواكم او اقتراحاتكم .. ونعدكم بالعمل جاهدين لتلبية متطلباتكم .
+            يمكنم استخدام احد وسائل التواصل المتاحة في هذة الصفحة بدء من
+            مراسلتنا عبر نموذج الأتصال مرورا بالتواصل معنا عبر صفحتنا علي فيس
+            بوك او التواصل مع احد مندوبينا عبر الدردشة الحية ويمكنكم ايضا
+            الأتصال بنا علي الأرقام الموضحة ادناة ...
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- <app-post></app-post> -->

@@ -1,0 +1,52 @@
+<!-- <app-admin-header></app-admin-header> -->
+
+<div class="container">
+  <div class="row table" style="overflow-x: auto; overflow-y: hidden;">
+    <table>
+      <tr>
+        <th>كراسه الشروط</th>
+        <th>تاريخ المناقصه</th>
+        <!-- <th>المورد</th> -->
+        <th>الصنف</th>
+        <th>تاريخ انتهاء المناقصه</th>
+        <th>تقرير</th>
+      </tr>
+      <tr
+        *ngFor="
+          let item of privatetendets
+            | paginate: { itemsPerPage: 10, currentPage: p }
+        "
+      >
+        <td>{{ item.brochure }}</td>
+        <td>{{ item.date | date: "short" }}</td>
+        <!-- <td>{{ item.supplier.companyName }}</td> -->
+        <td>
+          {{ item.subCategory.name }}
+        </td>
+        <td>
+          {{ item.expireDate | date: "short" }}
+        </td>
+        <td>
+          <button
+            class="btn btn-primary"
+            [routerLink]="['/admin/privateTenderReport', item.id]"
+          >
+            تقرير
+          </button>
+        </td>
+
+        <!-- <a routerLink="/signin/" [state]="{ id: item.id }">edit</a> -->
+      </tr>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </table>
+  </div>
+</div>
+<!-- <ul id="myUL" *ngFor="let item of privatetendets">
+  <li id="mysubcat">
+    <a href="#"> {{ item.subCategory.name }}</a>
+  </li>
+ 
+</ul> -->
+<br />
+<br />
+<br />

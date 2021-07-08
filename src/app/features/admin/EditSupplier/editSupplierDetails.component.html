@@ -1,0 +1,177 @@
+<section class="hero-section" style="background-image: url(assets/img/2.jpg);">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <form
+            class="hero-form"
+            #supplierForm="ngForm"
+            (submit)="onSubmitSupplier(supplierForm)"
+          >
+            <div>
+              <input
+                type="text"
+                placeholder="   أسم الشركه  "
+                name="companyName"
+                [(ngModel)]="nstd.supplier.companyName"
+                ngModel
+              />
+  
+              <!-- <div *ngIf="companyName.invalid && companyName.touched">
+                <p *ngIf="companyName.errors.required">
+                  company name is required
+                </p>
+                <p *ngIf="companyName.errors.minlength">
+                  minlength is
+                  {{ companyName.errors.minlength.requiredLength }} charter
+                </p>
+              </div> -->
+            </div>
+            <input
+              type="text"
+              placeholder="  عنوان الشركه  "
+              required
+              name="address"
+              [(ngModel)]="nstd.supplier.address"
+              ngModel
+            />
+            <input
+              type="text"
+              placeholder=" البريد الألكتروني  "
+              name="email"
+              [(ngModel)]="nstd.supplier.email"
+              ngModel
+            />
+  
+            <!-- <div *ngIf="companyEmail.invalid && companyEmail.touched">
+              <p *ngIf="companyEmail.errors.email">not valid</p>
+              <p *ngIf="companyName.errors.required">email is required</p>
+            </div> -->
+  
+            <input
+              type="text"
+              placeholder=" الفاكس "
+              name="supplierFax"
+              [(ngModel)]="nstd.supplierFax"
+              ngModel
+              required
+            />
+  
+            <input
+              type="text"
+              placeholder=" أسم مدير الشركه "
+              name="managerName"
+              [(ngModel)]="nstd.supplier.managerName"
+              ngModel
+              required
+            />
+  
+            <input
+              type="text"
+              placeholder=" رقم مدير الشركه "
+              name="managerPhone"
+              [(ngModel)]="nstd.supplier.managerPhone"
+              ngModel
+              required
+            />
+  
+            <input
+              type="text"
+              placeholder=" تليفون الشركه  "
+              name="supplierPhone"
+              [(ngModel)]="nstd.supplierPhone"
+              ngModel
+              required
+            />
+  
+            <!-- <input
+              type="password"
+              placeholder="  كلمة المرور  "
+              name="password"
+              [(ngModel)]="nstd.supplier.password"
+              ngModel
+              required
+            /> -->
+            <!-- <select name="subCategoryID">
+              <option
+                *ngfor="let item of nstd.subCategoryID"
+                value="{{ item }}"
+              >
+                {{item.name}
+              </option>
+            </select> -->
+
+
+            <!-- <input
+              type="text"
+              placeholder="  نشاط الشركه  "
+              name="subCategoryID"
+              [(ngModel)]="nstd.subCategoryID"
+              ngModel
+              required
+            /> -->
+  
+            <!-- <input type="button" class="accordion" />نشاط الشركة
+              <div class="panel">
+                <select name="subCategories" ngModel>
+                  <option
+                    *ngFor="let item of subCat"
+                    value="{{ item.id }}"
+                   
+                  >
+                    {{ item.name }}
+                  </option>
+                </select>
+              </div> -->
+  
+            <p class="file right" hidden>
+              سابقة أعمال
+              <input
+                type="file"
+                required
+                name="legalPaperwork"
+                ngModel
+                [(ngModel)]="nstd.supplier.legalPaperwork"
+              />
+            </p>
+            <p class="file right" hidden>
+              معلومات الشركه
+              <input
+                type="file"
+                name="infoPaperwork"
+                ngModel
+                required
+                [(ngModel)]="nstd.supplier.infoPaperwork"
+              />
+            </p>
+            <input
+              type="text"
+              name="companyCode"
+              ngModel
+              required
+              disabled
+              [(ngModel)]="nstd.supplier.companyCode"
+            />
+  
+            <button class="site-btn" > تعديل</button>
+          </form>
+        </div>
+  
+        <div class="col-lg-6">
+          <div class="hs-text">
+            <h4 class="right">مرحبا بك</h4>
+            <br />
+            <p class="right">
+              اهلا بكم في موقع مناقصات مصر نحن نعمل دائما للوصول بخدماتنا الي
+              المستوي الذي يرغبة عملائنا الكرام .. لذا نرحب دائما بأستفساراتكم او
+              شكواكم او اقتراحاتكم .. ونعدكم بالعمل جاهدين لتلبية متطلباتكم .
+              يمكنم استخدام احد وسائل التواصل المتاحة في هذة الصفحة بدء من
+              مراسلتنا عبر نموذج الأتصال مرورا بالتواصل معنا عبر صفحتنا علي فيس
+              بوك او التواصل مع احد مندوبينا عبر الدردشة الحية ويمكنكم ايضا
+              الأتصال بنا علي الأرقام الموضحة ادناة ...
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  

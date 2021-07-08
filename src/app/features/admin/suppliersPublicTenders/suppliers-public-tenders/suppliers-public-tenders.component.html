@@ -1,0 +1,47 @@
+<!-- <app-admin-header></app-admin-header> -->
+<div class="container">
+    <div class="row" style="overflow-x: auto; overflow-y: hidden;"  >
+      <table>
+        <tr>
+            <th>المناقصة</th>
+            <th>اسم الشركة</th>
+            <th>تاريخ الانضمام</th>
+            <th scope="row">الدفع</th>
+        </tr>
+        <tr
+          *ngFor="let item of suppliersPublicTenders">
+          <td>{{ item.publicTender.tenderDescription }}</td>
+          <td>{{ item.supplier.companyName }}</td>
+          <td>{{ item.date | date: "short" }}</td>
+         
+          <td>
+            <button
+              class="btn btn-primary"
+              type="button"
+              
+            (click)="onSupplierPay(item.supplier.id, item.publicTender.id)"
+            *ngIf="item.paid == 'NO'"
+            >
+              دفع
+            </button>
+
+            
+            <span
+              
+              style="width: 70px;"
+           
+            *ngIf="item.paid == 'YES'"
+            >
+              تم الدفع 
+            </span>
+            
+            </td>
+
+            <hr />
+           
+        </tr>
+        <!-- <pagination-controls (pageChange)="p = $event"></pagination-controls> -->
+      </table>
+    </div>
+  </div>
+  <br>

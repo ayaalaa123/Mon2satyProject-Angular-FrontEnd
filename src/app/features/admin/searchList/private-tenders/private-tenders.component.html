@@ -1,0 +1,28 @@
+<br />
+<br />
+<div class="container">
+  <div class="row table" style="overflow-x: auto; overflow-y: hidden;">
+    <table>
+      <tr>
+        <th>كراسه الشروط</th>
+        <th>تاريخ المناقصه</th>
+        <!-- <th>المورد</th> -->
+      </tr>
+      <tr *ngFor="let item of publictendersarr">
+        <td>{{ item.privateTender.brochure }}</td>
+        <td>{{ item.privateTender.date }}</td>
+
+        <!-- <a routerLink="/signin/" [state]="{ id: item.id }">edit</a> -->
+      </tr>
+    </table>
+  </div>
+</div>
+<!-- <ul id="myUL" *ngFor="let item of privatetendets">
+      <li id="mysubcat">
+        <a href="#"> {{ item.subCategory.name }}</a>
+      </li>
+     
+    </ul> -->
+<br />
+<br />
+<br />

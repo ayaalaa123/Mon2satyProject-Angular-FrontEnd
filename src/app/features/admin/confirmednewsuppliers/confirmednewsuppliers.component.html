@@ -1,0 +1,62 @@
+<!-- <app-admin-header></app-admin-header> -->
+<div class="container">
+  <div class="text-center mb-5" *ngIf="newsuppliiers.length == 0"> 
+    <h3>
+      لا يوجد موردون جدد
+    </h3>
+  </div>
+  <div class="row" style="overflow-x: auto; overflow-y: hidden;" *ngIf="newsuppliiers.length > 0" >
+    <table>
+      <tr>
+        <th>اسم الشركة</th>
+        <th>العنوان</th>
+        <th>البريد الالكترونى</th>
+        <th>ورق سابقة الاعمال</th>
+        <th>ورق معلومات الشركة</th>
+        <th>تاريخ الانضمام</th>
+
+        <th>اسم مدير الشركة</th>
+        <th>رقم مدير الشركة</th>
+        <th scope="row">تعديل / حذف</th>
+      </tr>
+      <tr
+        *ngFor="
+          let item of newsuppliiers
+            | paginate: { itemsPerPage: 10, currentPage: p }
+        "
+      >
+        <td>{{ item.companyName }}</td>
+        <td>{{ item.address }}</td>
+        <td>{{ item.email }}</td>
+        <td>{{ item.legalPaperwork }}</td>
+        <td>{{ item.infoPaperwork }}</td>
+        <td>{{ item.addedDate | date: "short" }}</td>
+
+        <td>{{ item.managerName }}</td>
+        <td>{{ item.managerPhone }}</td>
+        <!-- <a routerLink="/signin/" [state]="{ id: item.id }">edit</a> -->
+        <td>
+          <button
+            class="btn btn-primary"
+            type="button"
+            
+            (click)="EditDetals(item.id)"
+            [routerLink]="['/admin/details', item.id]"
+          >
+            تعديل
+          </button>
+          <hr />
+          <button
+            type="button"
+            (click)="deleteNewSupplier(item.id)"
+            class="btn btn-danger"
+            style="width: 70px;"
+          >
+            حذف
+          </button>
+        </td>
+      </tr>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </table>
+  </div>
+</div>

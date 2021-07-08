@@ -1,0 +1,95 @@
+<!-- paging -->
+<!-- <div style="text-align: center;">
+  <h4>
+    Basic Pagination
+  </h4>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Item</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of collection.data | paginate: config">
+        <th scope="row">{{ item.id }}</th>
+        <td>{{ item.value }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+</div> -->
+<!-- paging -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-12 sidebar">
+      <div class="sb-widget">
+        <br />
+        <br />
+        <form class="search-form">
+          <input type="text" id="myInput" placeholder="اكتب بحثك هنا .." />
+          <button><img src="assets/img/search-icon.png" alt="" /></button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br />
+  <div class="row" style="overflow-x: auto; overflow-y: hidden;">
+    <table>
+      <tr>
+        <th scop="row">اسم الشركة</th>
+        <th scop="row">العنوان</th>
+        <th scop="row">البريد الالكترونى</th>
+        <th scop="row">ورق سابقة الاعمال</th>
+        <th scop="row">ورق معلومات الشركة</th>
+        <th scop="row">تاريخ الانضمام</th>
+        <th scop="row">الرقم التسجيلى</th>
+        <th scop="row">اسم مدير الشركة</th>
+        <th scop="row">رقم مدير الشركة</th>
+        <th scope="row">تعديل / حذف</th>
+      </tr>
+      <tbody id="myTable">
+        <tr
+          *ngFor="
+            let item of suppliers
+              | paginate: { itemsPerPage: 10, currentPage: p }
+          "
+        >
+          <td>{{ item.companyName }}</td>
+
+          <td>{{ item.address }}</td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.legalPaperwork }}</td>
+          <td>{{ item.infoPaperwork }}</td>
+          <td>{{ item.addedDate | date: "short" }}</td>
+          <td>{{ item.companyCode }}</td>
+          <td>{{ item.managerName }}</td>
+          <td>{{ item.managerPhone }}</td>
+          <td>
+            <button
+              class="btn btn-primary"
+              type="button"
+              (click)="onClickMe()"
+              [routerLink]="['/admin/supplierDetails', item.id]"
+            >
+              تعديل
+            </button>
+            <hr />
+            <button *ngIf="item.susspended == 'NO'" type="button" class="btn btn-danger" (click)="onSusspended(item.companyCode)" data-id={{item.companyCode}} style="width: 70px;">
+              حظر
+            </button>
+            
+            <button *ngIf="item.susspended == 'YES'" type="button" class="btn btn-success" (click)="onUnSusspended(item.companyCode)" data-id={{item.companyCode}} style="width: 70px;">
+              فك الحظر
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </table>
+    <!-- <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls | paginate: config> -->
+  </div>
+</div>

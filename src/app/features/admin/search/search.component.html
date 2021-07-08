@@ -1,0 +1,61 @@
+<br />
+<br />
+<div class="container">
+  <div class="row">
+    <div class="col-lg-6 col-md-12 sidebar">
+      <div class="sb-widget">
+        <form class="search-form">
+          <input type="text" id="myInput" placeholder="اكتب بحثك هنا .." />
+          <button><img src="assets/img/search-icon.png" alt="" /></button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+  <div class="row table" style="overflow-x: auto; overflow-y: hidden;">
+    <table>
+      <tr>
+        <th>الصنف</th>
+        <th>قائمة الموردين</th>
+        <th>قائمة المناقصات العامه</th>
+        <th>قائمة المناقصات المحدوده</th>
+      </tr>
+      <tbody id="myTable">
+        <tr
+          *ngFor="
+            let item of subcatarr
+              | paginate: { itemsPerPage: 10, currentPage: p }
+          "
+        >
+          <td>{{ item.name }}</td>
+          <td>
+            <button
+              class="btn btn-primary"
+              [routerLink]="['/admin/search/ListOfSuppliers', item.id]"
+            >
+              قائمة الموردين
+            </button>
+          </td>
+          <td>
+            <button
+              class="btn btn-primary"
+              [routerLink]="['/admin/search/ListOpublicTender', item.id]"
+            >
+              قائمة المناقصات العامه
+            </button>
+          </td>
+          <td>
+            <button
+              class="btn btn-primary"
+              [routerLink]="['/admin/search/listOfPrivatTender', item.id]"
+            >
+              قائمة المناقصات المحدوده
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </table>
+  </div>
+</div>

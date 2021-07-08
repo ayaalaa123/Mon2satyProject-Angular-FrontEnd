@@ -1,0 +1,49 @@
+<div class="container">
+  
+  <section>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 style="text-align: center; color: orangered; margin: 20px;">
+            المناقصات المتاحة
+          </h2>
+        </div>
+      </div>
+
+      <div class="row" *ngFor="let item of supplierPublicTenders" >
+        <div class="col-lg-4" class="center" style="background-color: #ebf0f3;"  
+        *ngIf="supplierPublicTenders.length > 0"
+        >
+          <p  class="right" style="font-size: 16px; font-weight: 600;">
+            <!-- <b> {{ item.publicTender.subCategory.name }} </b>
+
+            <br /> -->
+
+            {{ item.publicTender.tenderDescription }}
+          </p>
+
+          <span>تاريخ انتهاء المناقصة</span>
+          <p>
+            {{item.publicTender.expireDate | date: 'medium' }}
+          </p>
+
+          <button *ngIf="item.applied == 'NO'" class="btn btn-primary" (click)="applyForTender(item.publicTenderID)">
+            قدم الآن</button>
+          <span *ngIf="item.applied == 'YES' && item.paid == 'NO'">
+            قيد التقديم 
+          </span>
+
+          <span *ngIf="item.applied == 'YES' && item.paid=='YES'">
+            تم الدفع
+          </span>
+          
+        </div>
+        <h3 *ngIf="supplierPublicTenders.length < 1">
+          {{ supplier.companyName }} :لا يوجد مناقصات عامة متاحة لديك  
+        </h3>
+      </div>
+
+   
+    </div>
+  </section>
+</div>

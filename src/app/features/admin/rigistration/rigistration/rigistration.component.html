@@ -1,0 +1,379 @@
+<section
+  class="hero-section"
+  style="background-image: url(assets/img/2.jpg); background-repeat: no-repeat;"
+>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <form
+          class="hero-form"
+          name="myForm"
+          (ngSubmit)=" supplierForm.form.valid && onSubmitSupplier(supplierForm)"
+          #supplierForm="ngForm"
+          novalidate
+        >
+          <div class="form-group">
+            <div
+              *ngIf="companyName.invalid && (companyName.dirty || companyName.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="companyName.errors.required">
+                برجاء ادخال اسم الشركه
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="companyName"
+              class="form-control"
+              required
+              placeholder="   أسم الشركه  "
+              name="companyName"
+              [(ngModel)]="data.companyName"
+              #companyName="ngModel"
+            />
+          </div>
+
+          <div class="form-group">
+            <div
+              *ngIf="address.invalid && (address.dirty || address.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="address.errors.required">
+                برجاء ادخال عنوان الشركه
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="address"
+              name="address"
+              class="form-control"
+              placeholder="  عنوان الشركه  "
+              required
+              [(ngModel)]="data.address"
+              #address="ngModel"
+            />
+          </div>
+
+          <div class="form-group">
+            <div
+              *ngIf="email.invalid && (email.dirty || email.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="email.errors.email">
+                البريد الالكتروني غير صحيح
+              </div>
+              <div *ngIf="email.errors.required">
+                برجاء ادخال بريد الشركه
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input
+              type="text"
+              id="email"
+              class="form-control"
+              name="email"
+              [(ngModel)]="data.email"
+              placeholder="البريد الالكتر وني"
+              #email="ngModel"
+              required
+              email
+            />
+          </div>
+
+          <!--  -->
+          <div class="form-group">
+            <div
+              *ngIf="supplierFax.invalid && (supplierFax.dirty || supplierFax.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="supplierFax.errors.required">
+                برجاء ادخال الفاكس
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input
+              id="supplierFax"
+              type="text"
+              placeholder=" الفاكس "
+              name="supplierFax"
+              class="from-control"
+              [(ngModel)]="data.supplierFax"
+              #supplierFax="ngModel"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <div
+              *ngIf="managerName.invalid && (managerName.dirty || managerName.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="managerName.errors.required">
+                برجاء ادخال اسم مدير الشركه
+              </div>
+            </div>
+          </div>
+
+          <div class="form=group">
+            <input
+              id="managerName"
+              class="form-control"
+              type="text"
+              placeholder=" أسم مدير الشركه "
+              name="managerName"
+              [(ngModel)]="data.managerName"
+              #managerName="ngModel"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <div
+              *ngIf="managerPhone.invalid && (managerPhone.dirty || managerPhone.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="managerPhone.errors.required">
+                برجاء ادخال تليفون مدير الشركه
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              type="text"
+              id="managerPhone"
+              placeholder=" رقم مدير الشركه "
+              name="managerPhone"
+              [(ngModel)]="data.managerPhone"
+              #managerPhone="ngModel"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <div
+              *ngIf="supplierPhone.invalid && (supplierPhone.dirty || supplierPhone.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="supplierPhone.errors.required">
+                برجاء ادخال رقم الشركه
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              class="form-control"
+              id="supplierPhone"
+              type="text"
+              placeholder=" تليفون الشركه  "
+              name="supplierPhone"
+              [(ngModel)]="data.supplierPhone"
+              #supplierPhone="ngModel"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <div
+              *ngIf="password.invalid && (password.dirty || password.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="password.errors.required">
+                برجاء ادخال كلمه المرور
+              </div>
+              <div *ngIf="password.errors.minlength">
+                اقل عدد من الحروف يمكن ادخالها هى ثلاثه احرف
+              </div>
+              <div *ngIf="password.errors.maxlength">
+                اكبر عدد من الحروف يمكن ادخالها هى عشرين حرف
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input
+              class="form-control"
+              id="password"
+              type="password"
+              placeholder="  كلمة المرور  "
+              name="password"
+              minlength="3"
+              maxlength="20"
+              [(ngModel)]="data.password"
+              #password="ngModel"
+              required
+            />
+          </div>
+          <label class="form-control">
+            برجاء الضغط علي نشاط الشركه لادخال الصنف</label
+          >
+          <input
+            type="button"
+            class="accordion"
+            value="نشاط الشركة
+        "
+          />
+
+          <div class="panel">
+            <select name="subCategories" ngModel>
+              <option *ngFor="let item of subCat" value="{{ item.id }}">
+                {{ item.name }}
+              </option>
+            </select>
+          </div>
+          <br />
+          <br />
+
+          <div class="form-group">
+            <div
+              *ngIf="legalPaperwork.invalid && (legalPaperwork.dirty || legalPaperwork.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="legalPaperwork.errors.required">
+                برجاء ادخال لينك درايف لسابقه الاعمال
+              </div>
+            </div>
+          </div>
+          <div class="form=group">
+            <input
+              class="form-control"
+              id="legalPaperwork"
+              type="text"
+              placeholder="لينك درايف سابقة الأعمال"
+              style="margin-top: 20px;"
+              name="legalPaperwork"
+              [(ngModel)]="data.legalPaperwork"
+              #legalPaperwork="ngModel"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <div
+              *ngIf="infoPaperwork.invalid && (infoPaperwork.dirty || infoPaperwork.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="infoPaperwork.errors.required">
+                برجاء ادخال لينك درايف معلومات الشركه
+              </div>
+            </div>
+          </div>
+          <div class="form=group">
+            <input
+              class="form-control"
+              id="infoPaperwork"
+              type="text"
+              placeholder="لينك درايف معلومات الشركة"
+              name="infoPaperwork"
+              style="margin-top: 20px;"
+              name="infoPaperwork"
+              [(ngModel)]="data.infoPaperwork"
+              #infoPaperwork="ngModel"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <div
+              *ngIf="companyCode.invalid && (companyCode.dirty || companyCode.touched)"
+              class="alert alert-danger"
+            >
+              <div *ngIf="companyCode.errors.required">
+                برجاء ادخال الرقم التسجيلى
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="companyCode"
+              placeholder="الرقم التسجيلى "
+              class="form-control"
+              name="companyCode"
+              required
+              [(ngModel)]="data.companyCode"
+              #companyCode="ngModel"
+            />
+          </div>
+          
+
+          <input type="button" class="site-btn" id="myBtn" value="تأكيد" style="width:30%; color:white; font-size:18px;"/>
+
+          <!-- The Modal -->
+          <div
+            id="myModal"
+            class="modal"
+            style="width: 500px; margin-right: 30%;"
+          >
+            <!-- Modal content -->
+            <div class="modal-content">
+              <span class="close" style="text-align: right;">&times;</span>
+              <br />
+              <div class="modal-header">
+                <h2 style="text-align: center;">التسجيل</h2>
+              </div>
+              <div class="modal-body">
+                <p
+                  style="
+                    color: black;
+                    font-size: 20px;
+                    text-align: center;
+                    font-style: normal;
+                  "
+                >
+                  هل تريد تسجيله في الشركه
+                </p>
+              </div>
+              <div
+                class="modal-footer"
+                style="text-decoration: black; padding: 15px;"
+              >
+                <button
+                  id="btnok"
+                
+                  type="submit"
+                  class="bt"
+                >
+                  تأكيد
+                </button> 
+                <!-- <button id="btnok" type="submit" class="bt"  >تأكيد</button> -->
+                        <!-- <input type="button" placeholder="إلغاء" value="إلغاء" class="close"
+                         class="bt"  />
+                      </div> -->
+                <input
+                  type="button"
+                  id="cancel"
+                  class="bt"
+                  value="إلغاء" placeholder="إلغاء"
+                
+                />
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="hs-text">
+          <h4 class="right">مرحبا بك</h4>
+          <!-- <input [(ngModel)]="nstd.companyName" style="color: yellowgreen;" /> -->
+          <br />
+          <p class="right">
+            اهلا بكم في موقع مناقصات مصر نحن نعمل دائما للوصول بخدماتنا الي
+            المستوي الذي يرغبة عملائنا الكرام .. لذا نرحب دائما بأستفساراتكم او
+            شكواكم او اقتراحاتكم .. ونعدكم بالعمل جاهدين لتلبية متطلباتكم .
+            يمكنم استخدام احد وسائل التواصل المتاحة في هذة الصفحة بدء من
+            مراسلتنا عبر نموذج الأتصال مرورا بالتواصل معنا عبر صفحتنا علي فيس
+            بوك او التواصل مع احد مندوبينا عبر الدردشة الحية ويمكنكم ايضا
+            الأتصال بنا علي الأرقام الموضحة ادناة ...
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

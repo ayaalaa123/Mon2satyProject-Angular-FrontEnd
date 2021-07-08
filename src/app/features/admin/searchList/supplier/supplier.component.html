@@ -1,0 +1,65 @@
+<!-- paging -->
+<!-- <div style="text-align: center;">
+  <h4>
+    Basic Pagination
+  </h4>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Item</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of collection.data | paginate: config">
+        <th scope="row">{{ item.id }}</th>
+        <td>{{ item.value }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+</div> -->
+<!-- paging -->
+
+<br />
+<br />
+<div class="container">
+  <div class="row" style="overflow-x: auto; overflow-y: hidden;">
+    <table>
+      <tr>
+        <th scop="row">اسم الشركة</th>
+        <th scop="row">العنوان</th>
+        <th scop="row">البريد الالكترونى</th>
+        <th scop="row">ورق سابقة الاعمال</th>
+        <th scop="row">ورق معلومات الشركة</th>
+        <th scop="row">تاريخ الانضمام</th>
+        <th scop="row">الرقم التسجيلى</th>
+        <th scop="row">اسم مدير الشركة</th>
+        <th scop="row">رقم مدير الشركة</th>
+      </tr>
+      <tbody id="myTable">
+        <tr
+          *ngFor="
+            let item of supplierarr
+              | paginate: { itemsPerPage: 10, currentPage: p }
+          "
+        >
+          <td>{{ item.companyName }}</td>
+
+          <td>{{ item.address }}</td>
+          <td>{{ item.email }}</td>
+          <td>{{ item.legalPaperwork }}</td>
+          <td>{{ item.infoPaperwork }}</td>
+          <td>{{ item.addedDate }}</td>
+          <td>{{ item.companyCode }}</td>
+          <td>{{ item.managerName }}</td>
+          <td>{{ item.managerPhone }}</td>
+        </tr>
+      </tbody>
+      <pagination-controls (pageChange)="p = $event"></pagination-controls>
+    </table>
+    <!-- <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls | paginate: config> -->
+  </div>
+</div>

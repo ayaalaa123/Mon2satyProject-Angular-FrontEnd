@@ -1,0 +1,52 @@
+<div class="container" style="text-align: center;">
+
+    <section>
+        <div class="container" style="text-align: center;">
+            <div class="row">
+                <h2 *ngIf="publicTenderArr.length == 0" style="text-align: center;">
+                    لا يوجد مناقصات عامه تم اختيارك بها
+                </h2>
+                <br>
+                <br>
+                <h2 style="text-align: center;" *ngIf="publicTenderArr.length != 0">
+                    المناقصات العامة التي تم اختيارك بها
+                </h2>
+                <div class="col-lg-12" *ngIf="publicTenderArr.length != 0">
+                    <table>
+                        <tr>
+                            <th>كراسة الشروط</th>
+                            <th>تاريخ المناقصة</th>
+                            <th>وصف المناقصة </th>
+                        </tr>
+                        <tr *ngFor="let publicTender of publicTenderArr">
+                            <td>{{publicTender.brochure}}</td>
+                            <td>{{publicTender.date}}</td>
+                            <td>{{publicTender.tenderDescription}}</td>
+                        </tr>
+                    </table>
+                </div>
+                <br />
+                <br />
+                <h2 *ngIf="privateTenderArr.length == 0" style="text-align: center;">
+                    لا يوجد مناقصات محدودة تم اختيارك بها
+                </h2>
+                <h2 style="text-align: center;" *ngIf="privateTenderArr.length != 0">
+                    المناقصات المحدودة التي تم اختيارك بها
+                </h2>
+                <div class="col-lg-12" *ngIf="privateTenderArr.length != 0">
+                    <table>
+                        <tr>
+                            <th>كراسة الشروط</th>
+                            <th>تاريخ المناقصة</th>
+                        </tr>
+                        <tr *ngFor="let privateTender of privateTenderArr">
+                            <td>{{privateTender.brochure}}</td>
+                            <td>{{privateTender.date}}</td>
+                        </tr>
+                    </table>
+                </div>
+ 
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,39 @@
+<section class="hero-section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <form class="hero-form" #categoryForm="ngForm" (submit)="onSubmitCategory(categoryForm)" ng-app="myApp"
+          ng-controller="validateCtrl" name="myForm" novalidate>
+          <label for="category" style="color: white; float: right;">اسم التصنيف</label>
+          <input type="text" placeholder="   أسم التصنيف  " name="category" ngModel ng-model="category" required />
+          <button class="site-btn" id="myBtn">
+            تأكيد
+          </button>
+        </form>
+      </div>
+
+      <div class="col-lg-6">
+        <form class="hero-form" #subCategoryForm="ngForm" (submit)="onSubmitSubCategoryCategory(subCategoryForm)" ng-app="myApp"
+          ng-controller="validateCtrl" name="myForm" novalidate>
+          <label for="subCategory" style="color: white; float: right;">اسم الصنف الفرعي</label>
+          <input type="text" placeholder="   أسم الصنف الفرعي  " name="subCategory" ngModel ng-model="subCategory" required />
+          <input
+              type="button"
+              class="accordion"
+              value=" التصنيف"
+            />
+          <div class="panel" style="width: 50%;">
+            <select name="category" ngModel style="width: 100%;">
+              <option *ngFor="let item of cat" value="{{ item.id }}">
+                {{ item.name }}
+              </option>
+            </select>
+          </div>
+          <button class="site-btn" id="myBtn">
+            تأكيد
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

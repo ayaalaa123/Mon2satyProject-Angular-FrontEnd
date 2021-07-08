@@ -1,0 +1,88 @@
+<!-- Page top Section end -->
+
+<!-- <app-admin-header></app-admin-header> -->
+
+<!-- Page top Section end -->
+
+<!-- Contact Section end -->
+
+<section class="contact-section spad">
+    <div class="container">
+      <div class="row">
+        <!-- <div class="col-lg-6 col-md-12 sidebar">
+            <div class="sb-widget">
+              <br />
+              <br />
+              <form class="search-form"   >
+                <input type="text" placeholder="اكتب بحثك هنا .."
+                  />
+                <button><img src="assets/img/search-icon.png" alt="" /></button>
+              </form>
+            </div>
+          </div> -->
+        <div>
+          <form class="contact-form">
+            <div class="col-md-12">
+              <!-- <textarea class="right" placeholder=" اكتب مناقصتك هنا ! " required></textarea> -->
+              <!-- <button class="site-btn" (click)="save()" > نشر </button> -->
+
+              <div>
+                <form
+                  class="hero-form"
+                  #f="ngForm"
+                  (ngSubmit)="onSubmit(f.value)"
+                >
+                <span class="label">كراسة الشروط</span>
+                  <input
+                    type="text"
+                    name="broucher"
+                    ngModel
+                    placeholder=" كراسة الشروط "
+                    required
+                  />
+                  <div class="accordion btn">نشاط الشركة</div>
+                <div class="panel">
+                  <select name="subCategoryID" ngModel>
+                    <option *ngFor="let item of subCat" value="{{item.id}}">
+                      {{item.name}}
+                    </option>
+                  </select>
+                </div>
+                  <br />
+                  <br />
+                  <br />
+                  <div >
+                    <!-- <label for="birthdaytime">Birthday (date and time):</label> -->
+                    <input type="datetime-local" id="expireDate" name="expireDate" ngModel>
+                    <!-- <div class="btn" (click)="getDate()">Get Date</div> -->
+                  </div>
+                  <!-- <input id="myBtn" style="background-color: orangered;" placeholder="تأكيد"  /> -->
+            <input type="button" class="site-btn" id="myBtn"  value="تأكيد" style="width:30%; background-color:#f6755e; color :white; font-size:18px;"/>      
+             <div id="myModal" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                      <span class="close">&times;</span>
+                      <div class="modal-header">
+                        <h2>تسجيل مناقصه محدوده</h2>
+                      </div>
+                      <div class="modal-body">
+                        <p style="font-size: medium;text-align: center; color: black;  ">هل انت متاكد من تسجيل هذه المناقصه</p>
+                      </div>
+                      <div class="modal-footer">
+                        <button id="btnok" type="submit" class="bt"  >تأكيد</button>
+                        <input type="button" placeholder="إلغاء" value="إلغاء" class=" bt" />
+                      </div>
+                    </div>
+                  </div> 
+                </form>
+              </div>
+
+              <br />
+              <br />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
